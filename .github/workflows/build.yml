@@ -61,6 +61,7 @@ jobs:
         if: github.ref_name == 'master'
         uses: actions/github-script@v8
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { DAILY_TAG } = process.env
             await github.rest.git.createRef({
